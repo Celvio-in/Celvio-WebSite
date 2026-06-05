@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Celvio Semiconductor Design</title>
+  <meta name="description" content="Engineering insights, VLSI tutorials, and semiconductor industry analysis from the Celvio team." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">Celvio<span class="logo-dot">.</span><span class="logo-tag">CVO · Semiconductor Design</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#why-us">Why Us</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="index.html#contact" class="nav-cta">Get a Quote</a></li>
+      </ul>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <p class="section-label" style="justify-content:center;display:flex;">Engineering Insights</p>
+    <h1>The Celvio Blog</h1>
+    <p>Deep-dives into VLSI design, open-source EDA, and semiconductor industry trends from our engineering team.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Filter Tags -->
+    <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-bottom:3rem;" class="fade-up">
+      <button onclick="filterBlog('all',this)" style="background:var(--dark);color:#fff;border:none;padding:0.45rem 1rem;border-radius:100px;font-size:0.82rem;font-weight:600;cursor:pointer;">All</button>
+      <button onclick="filterBlog('digital',this)" style="background:var(--off);color:var(--slate);border:1px solid var(--grey-lt);padding:0.45rem 1rem;border-radius:100px;font-size:0.82rem;font-weight:600;cursor:pointer;">Digital Design</button>
+      <button onclick="filterBlog('analog',this)" style="background:var(--off);color:var(--slate);border:1px solid var(--grey-lt);padding:0.45rem 1rem;border-radius:100px;font-size:0.82rem;font-weight:600;cursor:pointer;">Analog Design</button>
+      <button onclick="filterBlog('tools',this)" style="background:var(--off);color:var(--slate);border:1px solid var(--grey-lt);padding:0.45rem 1rem;border-radius:100px;font-size:0.82rem;font-weight:600;cursor:pointer;">EDA Tools</button>
+      <button onclick="filterBlog('industry',this)" style="background:var(--off);color:var(--slate);border:1px solid var(--grey-lt);padding:0.45rem 1rem;border-radius:100px;font-size:0.82rem;font-weight:600;cursor:pointer;">Industry</button>
+    </div>
+
+    <div class="blog-grid" id="blogGrid">
+      <div class="blog-card fade-up" data-cat="digital">
+        <div class="blog-img">🔷</div>
+        <div class="blog-body">
+          <span class="blog-tag">Digital Design</span>
+          <h3>Getting Started with OpenLane: RTL to GDSII in 60 Minutes</h3>
+          <p>A step-by-step guide to running your first full digital flow using the open-source OpenLane toolchain on SkyWater 130nm PDK.</p>
+          <div class="blog-meta"><span>Jun 2026</span><span>·</span><span>8 min read</span></div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up" data-cat="analog">
+        <div class="blog-img">🔶</div>
+        <div class="blog-body">
+          <span class="blog-tag">Analog Design</span>
+          <h3>Designing a Bandgap Reference in Xschem + NGSpice</h3>
+          <p>How to design, simulate and verify a CMOS bandgap reference circuit entirely with free open-source EDA tools on Windows via Docker.</p>
+          <div class="blog-meta"><span>May 2026</span><span>·</span><span>12 min read</span></div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up" data-cat="industry">
+        <div class="blog-img">🌐</div>
+        <div class="blog-body">
+          <span class="blog-tag">Industry</span>
+          <h3>Why India is the Next Global Hub for VLSI Design Outsourcing</h3>
+          <p>Breaking down the cost, talent and policy advantages that make Indian IC design startups uniquely positioned for EU and Asia clients.</p>
+          <div class="blog-meta"><span>Apr 2026</span><span>·</span><span>6 min read</span></div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up" data-cat="tools">
+        <div class="blog-img">🛠️</div>
+        <div class="blog-body">
+          <span class="blog-tag">EDA Tools</span>
+          <h3>IIC-OSIC-TOOLS on Windows: Complete Docker Setup Guide</h3>
+          <p>How to install and configure the full open-source VLSI tool suite (Xschem, Magic, OpenLane, KLayout) on Windows using Docker Desktop.</p>
+          <div class="blog-meta"><span>Mar 2026</span><span>·</span><span>10 min read</span></div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up" data-cat="analog">
+        <div class="blog-img">📡</div>
+        <div class="blog-body">
+          <span class="blog-tag">Analog Design</span>
+          <h3>LDO Regulator Design: Stability Analysis with SPICE</h3>
+          <p>Step-by-step design of a CMOS low-dropout regulator with loop stability analysis, phase margin optimization, and Monte Carlo simulation.</p>
+          <div class="blog-meta"><span>Feb 2026</span><span>·</span><span>15 min read</span></div>
+        </div>
+      </div>
+
+      <div class="blog-card fade-up" data-cat="digital">
+        <div class="blog-img">⚙️</div>
+        <div class="blog-body">
+          <span class="blog-tag">Digital Design</span>
+          <h3>Static Timing Analysis with OpenSTA: A Practical Guide</h3>
+          <p>How to run STA on your OpenLane designs using OpenSTA — understanding setup/hold violations, fixing timing paths, and generating reports.</p>
+          <div class="blog-meta"><span>Jan 2026</span><span>·</span><span>9 min read</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<section class="section-sm services-bg">
+  <div class="container" style="text-align:center;max-width:560px;">
+    <p class="section-label" style="justify-content:center;display:flex;">Stay Updated</p>
+    <h2 class="section-title">Get VLSI Insights in Your Inbox</h2>
+    <p style="color:var(--slate);font-size:0.95rem;margin:1rem 0 2rem;">Monthly newsletter with EDA tool tips, industry news and design tutorials. No spam.</p>
+    <form id="newsletterForm" style="display:flex;gap:0.75rem;flex-wrap:wrap;justify-content:center;">
+      <input type="email" class="form-input" placeholder="your@company.com" required style="flex:1;min-width:240px;max-width:360px;" />
+      <button type="submit" class="btn btn-mint">Subscribe →</button>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Celvio<span style="color:var(--mint)">.</span></div>
+        <p>India-based full-stack semiconductor design studio.</p>
+        <div class="footer-socials" style="margin-top:1.2rem;">
+          <a href="#" class="social-btn">in</a>
+          <a href="#" class="social-btn">gh</a>
+          <a href="#" class="social-btn">𝕏</a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Services</h4><ul><li><a href="index.html#services">Digital IC Design</a></li><li><a href="index.html#services">Analog IC Design</a></li><li><a href="index.html#services">Verification</a></li><li><a href="index.html#services">IP Licensing</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul><li><a href="index.html#why-us">Why Celvio</a></li><li><a href="blog.html">Blog</a></li><li><a href="careers.html">Careers</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
+      <div class="footer-col"><h4>Markets</h4><ul><li><a href="index.html#contact">Asia Pacific</a></li><li><a href="index.html#contact">Europe</a></li><li><a href="index.html#contact">United States</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Celvio Semiconductor Design · Bengaluru, India</p>
+      <p>IESA · NASSCOM Registered</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+function filterBlog(cat, btn) {
+  document.querySelectorAll('[onclick^="filterBlog"]').forEach(b => {
+    b.style.background = 'var(--off)'; b.style.color = 'var(--slate)'; b.style.border = '1px solid var(--grey-lt)';
+  });
+  btn.style.background = 'var(--dark)'; btn.style.color = '#fff'; btn.style.border = 'none';
+  document.querySelectorAll('.blog-card').forEach(card => {
+    card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+  });
+}
+document.getElementById('newsletterForm')?.addEventListener('submit', e => {
+  e.preventDefault();
+  const btn = e.target.querySelector('button');
+  btn.textContent = 'Subscribed! ✓';
+  btn.style.background = 'var(--mint-dk)';
+  e.target.querySelector('input').value = '';
+  setTimeout(() => { btn.textContent = 'Subscribe →'; btn.style.background = ''; }, 3000);
+});
+</script>
+</body>
+</html>

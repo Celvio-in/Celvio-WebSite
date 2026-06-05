@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Celvio — Semiconductor Design Studio | India</title>
+  <meta name="description" content="Celvio is an India-based full-stack VLSI design studio offering analog, digital and mixed-signal IC design services to clients in Asia, Europe and USA." />
+  <meta name="keywords" content="VLSI design, IC design, analog design, digital IC, semiconductor, India, Bengaluru, OpenLane, Xschem" />
+  <meta property="og:title" content="Celvio — Semiconductor Design Studio" />
+  <meta property="og:description" content="Full-stack analog & digital IC design from India for Asia, Europe & USA." />
+  <meta property="og:url" content="https://celvio.in" />
+  <link rel="canonical" href="https://celvio.in" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+</head>
+<body>
+
+<!-- ── NAVBAR ──────────────────────────────────────────── -->
+<nav class="navbar">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">
+        Celvio<span class="logo-dot">.</span>
+        <span class="logo-tag">CVO · Semiconductor Design</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#why-us">Why Us</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+      </ul>
+      <div class="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ────────────────────────────────────────────── -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-eyebrow">India-Based · Global Reach</div>
+        <h1>Designing the <em>Silicon</em> that Powers Tomorrow</h1>
+        <p class="hero-desc">
+          Full-stack analog &amp; digital IC design studio from Bengaluru.
+          We deliver cost-efficient VLSI solutions to semiconductor companies
+          across Asia, Europe &amp; USA.
+        </p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">Start a Project →</a>
+          <a href="#services" class="btn btn-outline">Our Services</a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-val"><span data-count="60" data-suffix="%">0%</span></div>
+            <div class="hero-stat-label">Cost saving vs US/EU</div>
+          </div>
+          <div>
+            <div class="hero-stat-val"><span data-count="3" data-suffix=" regions">0 regions</span></div>
+            <div class="hero-stat-label">Asia · Europe · USA</div>
+          </div>
+          <div>
+            <div class="hero-stat-val"><span data-count="0" data-suffix="$">$0</span></div>
+            <div class="hero-stat-label">EDA license cost</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="card-header">
+            <div class="card-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="card-label">celvio_rtl_flow.v</div>
+          </div>
+          <div class="code-block">
+            <div><span class="code-comment">// Celvio — Digital Flow</span></div>
+            <div><span class="code-keyword">module</span> <span class="code-value">alu_core</span> (</div>
+            <div>&nbsp;&nbsp;<span class="code-keyword">input</span>  [31:0] <span class="code-string">operand_a</span>,</div>
+            <div>&nbsp;&nbsp;<span class="code-keyword">input</span>  [31:0] <span class="code-string">operand_b</span>,</div>
+            <div>&nbsp;&nbsp;<span class="code-keyword">input</span>  [3:0]  <span class="code-string">op_code</span>,</div>
+            <div>&nbsp;&nbsp;<span class="code-keyword">output</span> [31:0] <span class="code-string">result</span></div>
+            <div>);</div>
+            <div>&nbsp;&nbsp;<span class="code-fn">always_comb</span> <span class="code-keyword">begin</span></div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// synthesized via Yosys</span></div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">case</span> (<span class="code-string">op_code</span>)</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4'b0000: <span class="code-string">result</span> = a + b;</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4'b0001: <span class="code-string">result</span> = a - b;</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">endcase</span></div>
+            <div>&nbsp;&nbsp;<span class="code-keyword">end</span></div>
+            <div><span class="code-keyword">endmodule</span></div>
+          </div>
+          <div class="chip-badges">
+            <span class="chip-badge active">OpenLane ✓</span>
+            <span class="chip-badge active">Yosys ✓</span>
+            <span class="chip-badge">DRC Clean</span>
+            <span class="chip-badge">LVS Pass</span>
+            <span class="chip-badge active">SkyWater 130nm</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CLIENTS STRIP ───────────────────────────────────── -->
+<div class="section-sm clients-bg">
+  <div class="container">
+    <p class="section-label" style="text-align:center;margin-bottom:1.2rem;">Targeting clients across</p>
+    <div class="clients-scroll">
+      <div class="client-logo">🇯🇵 Renesas</div>
+      <div class="client-logo">🇰🇷 Samsung Foundry</div>
+      <div class="client-logo">🇹🇼 MediaTek</div>
+      <div class="client-logo">🇩🇪 Infineon</div>
+      <div class="client-logo">🇳🇱 NXP</div>
+      <div class="client-logo">🇫🇷 STMicroelectronics</div>
+      <div class="client-logo">🇬🇧 ARM Ecosystem</div>
+      <div class="client-logo">🇺🇸 Qualcomm</div>
+      <div class="client-logo">🇺🇸 Texas Instruments</div>
+      <div class="client-logo">🇺🇸 Marvell</div>
+      <div class="client-logo">🇸🇪 Ericsson Silicon</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── SERVICES ────────────────────────────────────────── -->
+<section class="section services-bg" id="services">
+  <div class="container">
+    <p class="section-label fade-up">What We Do</p>
+    <h2 class="section-title fade-up">Full-Stack IC Design Services</h2>
+    <p class="section-desc fade-up">From RTL to GDSII for digital, and schematic to layout for analog — we cover the complete design cycle.</p>
+
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-icon">🔷</div>
+        <h3>Digital IC Design</h3>
+        <p>RTL-to-GDSII flow using OpenLane, Yosys &amp; OpenROAD. SoC, ASIC, and FPGA design for automotive, IoT, and compute applications.</p>
+        <div class="service-tags">
+          <span class="service-tag">Verilog / VHDL</span>
+          <span class="service-tag">Synthesis</span>
+          <span class="service-tag">Place &amp; Route</span>
+          <span class="service-tag">STA</span>
+        </div>
+      </div>
+
+      <div class="service-card fade-up">
+        <div class="service-icon">🔶</div>
+        <h3>Analog IC Design</h3>
+        <p>Custom analog design using Xschem + NGSpice + Magic. OpAmps, LDOs, ADC/DAC, bandgap references, and RF front-ends.</p>
+        <div class="service-tags">
+          <span class="service-tag">Xschem</span>
+          <span class="service-tag">NGSpice</span>
+          <span class="service-tag">Magic VLSI</span>
+          <span class="service-tag">SPICE</span>
+        </div>
+      </div>
+
+      <div class="service-card fade-up">
+        <div class="service-icon">🔬</div>
+        <h3>Verification &amp; Signoff</h3>
+        <p>DRC, LVS, and STA signoff using KLayout, OpenSTA, and Calibre-compatible flows. Thorough functional simulation and coverage-driven verification.</p>
+        <div class="service-tags">
+          <span class="service-tag">DRC / LVS</span>
+          <span class="service-tag">KLayout</span>
+          <span class="service-tag">OpenSTA</span>
+          <span class="service-tag">UVM</span>
+        </div>
+      </div>
+
+      <div class="service-card fade-up">
+        <div class="service-icon">🤝</div>
+        <h3>IP Licensing</h3>
+        <p>Reusable analog and digital IP blocks — delivered with full documentation, testbenches, and integration support. Ready for tape-out.</p>
+        <div class="service-tags">
+          <span class="service-tag">Analog IP</span>
+          <span class="service-tag">Digital IP</span>
+          <span class="service-tag">SkyWater 130nm</span>
+        </div>
+      </div>
+
+      <div class="service-card fade-up">
+        <div class="service-icon">☁️</div>
+        <h3>Cloud EDA Flows</h3>
+        <p>AWS-based cloud EDA setup for scalable synthesis and simulation runs. Burst compute for large designs without expensive workstation investment.</p>
+        <div class="service-tags">
+          <span class="service-tag">AWS EC2</span>
+          <span class="service-tag">Docker</span>
+          <span class="service-tag">IIC-OSIC-TOOLS</span>
+        </div>
+      </div>
+
+      <div class="service-card fade-up">
+        <div class="service-icon">📋</div>
+        <h3>EDA Consulting</h3>
+        <p>Expert guidance on open-source EDA tool adoption, flow setup, and team training. Reduce your EDA license spend by up to 100%.</p>
+        <div class="service-tags">
+          <span class="service-tag">Tool Setup</span>
+          <span class="service-tag">Training</span>
+          <span class="service-tag">Flow Audit</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY US ───────────────────────────────────────────── -->
+<section class="section" id="why-us">
+  <div class="container">
+    <div class="why-grid">
+      <div>
+        <p class="section-label fade-up">Why Celvio</p>
+        <h2 class="section-title fade-up">India's Edge in Global Semiconductor Design</h2>
+        <p class="section-desc fade-up">We combine world-class engineering talent with open-source EDA tools to deliver premium IC design at a fraction of the cost.</p>
+
+        <ul class="why-list">
+          <li class="why-item fade-up">
+            <div class="why-icon">💰</div>
+            <div>
+              <h4>60–70% Cost Reduction</h4>
+              <p>Compared to EU and US design houses — same quality, fraction of the price.</p>
+            </div>
+          </li>
+          <li class="why-item fade-up">
+            <div class="why-icon">🕐</div>
+            <div>
+              <h4>Overlap with All Time Zones</h4>
+              <p>IST overlaps EU mornings, Asia afternoons, and US EST evenings.</p>
+            </div>
+          </li>
+          <li class="why-item fade-up">
+            <div class="why-icon">🔒</div>
+            <div>
+              <h4>NDA-First Engagement</h4>
+              <p>Your IP stays yours. TRIPS-compliant. NDAs signed before any discussion.</p>
+            </div>
+          </li>
+          <li class="why-item fade-up">
+            <div class="why-icon">⚡</div>
+            <div>
+              <h4>Agile 2-Week Sprints</h4>
+              <p>Transparent delivery model with milestone-based progress updates.</p>
+            </div>
+          </li>
+          <li class="why-item fade-up">
+            <div class="why-icon">🏛️</div>
+            <div>
+              <h4>IESA &amp; NASSCOM Registered</h4>
+              <p>Verified by India's top semiconductor and tech industry bodies.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="why-visual fade-up">
+        <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#64748b;margin-bottom:1.5rem;">Market Opportunity</p>
+
+        <div class="market-stat">
+          <div>
+            <div class="market-label">USA — Fabless &amp; EDA</div>
+            <div class="market-bar"><div class="market-bar-fill" data-width="95%" style="width:0;transition:width 1.2s ease 0.2s;"></div></div>
+          </div>
+          <div class="market-val">$143B <span>↑ largest</span></div>
+        </div>
+        <div class="market-stat">
+          <div>
+            <div class="market-label">Taiwan — Foundry &amp; Fabless</div>
+            <div class="market-bar"><div class="market-bar-fill" data-width="58%" style="width:0;transition:width 1.2s ease 0.4s;"></div></div>
+          </div>
+          <div class="market-val">$55B</div>
+        </div>
+        <div class="market-stat">
+          <div>
+            <div class="market-label">Japan — Automotive IC</div>
+            <div class="market-bar"><div class="market-bar-fill" data-width="44%" style="width:0;transition:width 1.2s ease 0.5s;"></div></div>
+          </div>
+          <div class="market-val">$42B</div>
+        </div>
+        <div class="market-stat">
+          <div>
+            <div class="market-label">South Korea — Memory &amp; Logic</div>
+            <div class="market-bar"><div class="market-bar-fill" data-width="40%" style="width:0;transition:width 1.2s ease 0.6s;"></div></div>
+          </div>
+          <div class="market-val">$38B</div>
+        </div>
+        <div class="market-stat">
+          <div>
+            <div class="market-label">Germany — Power &amp; Auto</div>
+            <div class="market-bar"><div class="market-bar-fill" data-width="29%" style="width:0;transition:width 1.2s ease 0.7s;"></div></div>
+          </div>
+          <div class="market-val">$28B</div>
+        </div>
+        <div class="market-stat">
+          <div>
+            <div class="market-label">UK &amp; France — Mixed-Signal</div>
+            <div class="market-bar"><div class="market-bar-fill" data-width="23%" style="width:0;transition:width 1.2s ease 0.8s;"></div></div>
+          </div>
+          <div class="market-val">$22B</div>
+        </div>
+        <div style="margin-top:1.5rem;padding:1rem;background:rgba(0,229,176,0.08);border-radius:8px;border:1px solid rgba(0,229,176,0.2);">
+          <p style="font-size:0.78rem;color:#00e5b0;font-weight:600;">Total Addressable Market</p>
+          <p style="font-family:'DM Serif Display',serif;font-size:2rem;color:#fff;margin-top:0.2rem;">$45B+ <span style="font-size:0.85rem;color:#94a3b8;font-family:'DM Sans',sans-serif;">outsourcing opportunity</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BLOG PREVIEW ────────────────────────────────────── -->
+<section class="section services-bg" id="blog">
+  <div class="container">
+    <p class="section-label fade-up">Insights</p>
+    <h2 class="section-title fade-up">From Our Engineering Blog</h2>
+    <p class="section-desc fade-up">Practical deep-dives into VLSI design, open-source EDA tools, and semiconductor industry trends.</p>
+
+    <div class="blog-grid">
+      <a href="blog.html" class="blog-card fade-up">
+        <div class="blog-img">🔷</div>
+        <div class="blog-body">
+          <span class="blog-tag">Digital Design</span>
+          <h3>Getting Started with OpenLane: RTL to GDSII in 60 Minutes</h3>
+          <p>A step-by-step guide to running your first full digital flow using the open-source OpenLane toolchain on SkyWater 130nm PDK.</p>
+          <div class="blog-meta">
+            <span>Jun 2026</span>
+            <span>·</span>
+            <span>8 min read</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="blog.html" class="blog-card fade-up">
+        <div class="blog-img">🔶</div>
+        <div class="blog-body">
+          <span class="blog-tag">Analog Design</span>
+          <h3>Designing a Bandgap Reference in Xschem + NGSpice</h3>
+          <p>How to design, simulate and verify a CMOS bandgap reference circuit entirely with free open-source EDA tools on Windows via Docker.</p>
+          <div class="blog-meta">
+            <span>May 2026</span>
+            <span>·</span>
+            <span>12 min read</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="blog.html" class="blog-card fade-up">
+        <div class="blog-img">🌐</div>
+        <div class="blog-body">
+          <span class="blog-tag">Industry</span>
+          <h3>Why India is the Next Global Hub for VLSI Design Outsourcing</h3>
+          <p>Breaking down the cost, talent and policy advantages that make Indian IC design startups uniquely positioned for EU and Asia clients.</p>
+          <div class="blog-meta">
+            <span>Apr 2026</span>
+            <span>·</span>
+            <span>6 min read</span>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div style="text-align:center;margin-top:2.5rem;">
+      <a href="blog.html" class="btn btn-outline">View All Articles →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ─────────────────────────────────────────── -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <p class="section-label fade-up">Get In Touch</p>
+        <h2 class="section-title fade-up">Let's Build Your Next Chip Together</h2>
+        <p class="section-desc fade-up">Tell us about your project. We'll get back within 24 hours with a detailed proposal.</p>
+
+        <div class="contact-info">
+          <div class="contact-item fade-up">
+            <div class="contact-icon">📧</div>
+            <div>
+              <h4>Email</h4>
+              <p>contact@celvio.in</p>
+            </div>
+          </div>
+          <div class="contact-item fade-up">
+            <div class="contact-icon">📍</div>
+            <div>
+              <h4>Location</h4>
+              <p>Bengaluru, Karnataka, India</p>
+            </div>
+          </div>
+          <div class="contact-item fade-up">
+            <div class="contact-icon">🕐</div>
+            <div>
+              <h4>Working Hours</h4>
+              <p>Mon–Fri · 9 AM – 7 PM IST</p>
+            </div>
+          </div>
+          <div class="contact-item fade-up">
+            <div class="contact-icon">🌐</div>
+            <div>
+              <h4>Time Zone Coverage</h4>
+              <p>Asia · Europe · USA (EST overlap)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-up">
+        <form id="contactForm" style="background:var(--off);padding:2.5rem;border-radius:16px;border:1px solid var(--grey-lt);">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">First Name *</label>
+              <input type="text" class="form-input" placeholder="John" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Last Name *</label>
+              <input type="text" class="form-input" placeholder="Smith" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Company Email *</label>
+            <input type="email" class="form-input" placeholder="john@company.com" required />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Company</label>
+              <input type="text" class="form-input" placeholder="Acme Semiconductors" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Country</label>
+              <select class="form-select">
+                <option value="">Select country</option>
+                <option>Japan</option>
+                <option>South Korea</option>
+                <option>Taiwan</option>
+                <option>Germany</option>
+                <option>Netherlands</option>
+                <option>United Kingdom</option>
+                <option>France</option>
+                <option>Sweden</option>
+                <option>United States</option>
+                <option>India</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Service Needed</label>
+            <select class="form-select">
+              <option value="">Select service</option>
+              <option>Digital IC Design (RTL to GDSII)</option>
+              <option>Analog IC Design</option>
+              <option>Verification &amp; Signoff</option>
+              <option>IP Licensing</option>
+              <option>Cloud EDA Setup</option>
+              <option>EDA Consulting</option>
+              <option>Full Project (End-to-End)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Project Details *</label>
+            <textarea class="form-textarea" placeholder="Describe your chip design project, technology node, timeline, and any specific requirements…" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
+            Send Message →
+          </button>
+          <p style="font-size:0.75rem;color:var(--grey);text-align:center;margin-top:1rem;">
+            🔒 Your information is confidential. NDA available on request.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Celvio<span style="color:var(--mint)">.</span></div>
+        <p>India-based full-stack semiconductor design studio. Analog, digital, and mixed-signal IC design for clients across Asia, Europe &amp; USA.</p>
+        <div class="footer-socials" style="margin-top:1.2rem;">
+          <a href="#" class="social-btn" title="LinkedIn">in</a>
+          <a href="#" class="social-btn" title="GitHub">gh</a>
+          <a href="#" class="social-btn" title="Twitter/X">𝕏</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Digital IC Design</a></li>
+          <li><a href="#services">Analog IC Design</a></li>
+          <li><a href="#services">Verification</a></li>
+          <li><a href="#services">IP Licensing</a></li>
+          <li><a href="#services">EDA Consulting</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#why-us">Why Celvio</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="careers.html">Careers</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Markets</h4>
+        <ul>
+          <li><a href="#contact">Asia Pacific</a></li>
+          <li><a href="#contact">Europe</a></li>
+          <li><a href="#contact">United States</a></li>
+          <li><a href="#contact">India</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Celvio Semiconductor Design. Bengaluru, India · contact@celvio.in</p>
+      <p>IESA · NASSCOM Registered · TRIPS Compliant</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
