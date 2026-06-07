@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Celvio – VLSI Design Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#07090F;
+  --bg2:#0D1117;
+  --bg3:#111827;
+  --accent:#00C9A7;
+  --accent2:#3B82F6;
+  --text:#F0F4FF;
+  --muted:#8892A4;
+  --border:rgba(255,255,255,0.07);
+  --card:rgba(255,255,255,0.03);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,h4,h5{font-family:'Syne',sans-serif}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:100;padding:1.1rem 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(7,9,15,0.9);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.logo{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;letter-spacing:-0.5px;text-decoration:none;color:var(--text)}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:1.75rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:0.875rem;font-weight:500;transition:color 0.2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:var(--accent);color:#07090F;padding:0.5rem 1.25rem;border-radius:6px;font-weight:700;font-size:0.875rem;text-decoration:none;font-family:'Syne',sans-serif;transition:opacity 0.2s}
+.nav-cta:hover{opacity:0.85}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:8rem 5% 5rem;position:relative;overflow:hidden}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,201,167,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,201,167,0.04) 1px,transparent 1px);background-size:60px 60px;z-index:0}
+.hero-glow{position:absolute;top:20%;left:35%;width:600px;height:600px;background:radial-gradient(circle,rgba(0,201,167,0.07) 0%,transparent 70%);z-index:0;pointer-events:none}
+.hero-content{position:relative;z-index:1;max-width:720px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,201,167,0.08);border:1px solid rgba(0,201,167,0.2);color:var(--accent);padding:0.35rem 1rem;border-radius:100px;font-size:0.78rem;font-weight:600;margin-bottom:2rem;letter-spacing:0.5px}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero h1{font-size:clamp(2.8rem,6vw,5rem);font-weight:800;line-height:1.05;letter-spacing:-2px;margin-bottom:1.5rem}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p{font-size:1.1rem;color:var(--muted);max-width:540px;margin-bottom:2.5rem;font-weight:300;line-height:1.85}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--accent);color:#07090F;padding:0.85rem 2rem;border-radius:8px;font-weight:700;font-size:0.95rem;text-decoration:none;font-family:'Syne',sans-serif;transition:all 0.25s;display:inline-block}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,201,167,0.25)}
+.btn-outline{border:1px solid rgba(255,255,255,0.15);color:var(--text);padding:0.85rem 2rem;border-radius:8px;font-weight:500;font-size:0.95rem;text-decoration:none;transition:all 0.2s;display:inline-block}
+.btn-outline:hover{border-color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.04)}
+.hero-stats{margin-top:4rem;display:flex;gap:3rem;flex-wrap:wrap}
+.stat-item h3{font-size:2.2rem;font-weight:800;color:var(--accent);letter-spacing:-1px;line-height:1}
+.stat-item p{font-size:0.82rem;color:var(--muted);margin-top:4px}
+
+/* SECTION */
+section{padding:6rem 5%}
+.section-label{font-size:0.72rem;font-weight:700;letter-spacing:3px;color:var(--accent);text-transform:uppercase;margin-bottom:0.75rem}
+.section-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-1px;line-height:1.1;margin-bottom:0.9rem}
+.section-sub{color:var(--muted);font-size:1rem;max-width:500px;line-height:1.75}
+
+/* SERVICES */
+.services{background:var(--bg2)}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;margin-top:3.5rem;border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.service-card{background:var(--bg2);padding:2rem;transition:background 0.3s;position:relative}
+.service-card:hover{background:var(--bg3)}
+.service-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);opacity:0;transition:opacity 0.3s}
+.service-card:hover::after{opacity:1}
+.service-icon{width:44px;height:44px;border-radius:10px;background:rgba(0,201,167,0.08);border:1px solid rgba(0,201,167,0.15);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;font-size:1.2rem}
+.service-card h3{font-size:1.05rem;font-weight:700;margin-bottom:0.6rem;letter-spacing:-0.3px}
+.service-card p{font-size:0.875rem;color:var(--muted);line-height:1.65}
+.service-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:1rem}
+.tag{font-size:0.7rem;padding:3px 10px;border-radius:100px;background:rgba(59,130,246,0.08);border:1px solid rgba(59,130,246,0.15);color:rgba(147,197,253,0.9)}
+
+/* PORTFOLIO */
+.portfolio{background:var(--bg)}
+.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:3rem}
+.project-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all 0.3s}
+.project-card:hover{border-color:rgba(0,201,167,0.25);transform:translateY(-4px)}
+.project-top{padding:1.75rem 1.75rem 1rem;border-bottom:1px solid var(--border)}
+.project-node{display:inline-block;font-size:0.7rem;font-weight:600;padding:3px 10px;border-radius:100px;background:rgba(0,201,167,0.08);border:1px solid rgba(0,201,167,0.2);color:var(--accent);margin-bottom:1rem;letter-spacing:0.5px}
+.project-card h3{font-size:1rem;font-weight:700;margin-bottom:0.5rem;line-height:1.3}
+.project-card .proj-desc{font-size:0.85rem;color:var(--muted);line-height:1.65}
+.project-bottom{padding:1rem 1.75rem;display:flex;align-items:center;justify-content:space-between}
+.proj-tags{display:flex;gap:6px;flex-wrap:wrap}
+.proj-tag{font-size:0.7rem;padding:2px 8px;border-radius:4px;background:rgba(255,255,255,0.05);color:var(--muted)}
+.proj-outcome{font-size:0.75rem;color:var(--accent);font-weight:600;white-space:nowrap}
+
+/* TEAM */
+.team{background:var(--bg2)}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;margin-top:3rem}
+.team-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem 1.5rem;text-align:center;transition:border-color 0.3s}
+.team-card:hover{border-color:rgba(0,201,167,0.25)}
+.team-avatar{width:80px;height:80px;border-radius:50%;margin:0 auto 1.25rem;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:1.5rem;border:2px solid rgba(0,201,167,0.25)}
+.team-card h3{font-size:1rem;font-weight:700;margin-bottom:0.25rem}
+.team-card .role{font-size:0.8rem;color:var(--accent);font-weight:600;margin-bottom:0.75rem}
+.team-card p{font-size:0.82rem;color:var(--muted);line-height:1.6}
+.team-skills{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin-top:1rem}
+.team-skill{font-size:0.68rem;padding:2px 8px;border-radius:100px;background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--muted)}
+
+/* TESTIMONIALS */
+.testimonials{background:var(--bg)}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:3rem}
+.testi-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.75rem;transition:border-color 0.3s;position:relative}
+.testi-card:hover{border-color:rgba(0,201,167,0.2)}
+.quote-mark{font-size:3rem;color:var(--accent);opacity:0.2;font-family:'Syne',sans-serif;line-height:1;margin-bottom:0.5rem;font-weight:800}
+.testi-card p{font-size:0.9rem;color:var(--muted);line-height:1.75;font-style:italic;margin-bottom:1.25rem}
+.testi-author{display:flex;align-items:center;gap:10px;border-top:1px solid var(--border);padding-top:1rem}
+.testi-avatar{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:700;font-size:0.8rem;flex-shrink:0}
+.testi-name{font-size:0.875rem;font-weight:600}
+.testi-co{font-size:0.78rem;color:var(--muted)}
+.stars{color:var(--accent);font-size:0.85rem;margin-bottom:0.5rem;letter-spacing:2px}
+
+/* REGIONS */
+.regions{background:var(--bg2)}
+.regions-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:3rem}
+.region-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.75rem;transition:border-color 0.3s}
+.region-card:hover{border-color:rgba(0,201,167,0.3)}
+.region-flag{font-size:2rem;margin-bottom:1rem}
+.region-card h3{font-size:1rem;font-weight:700;margin-bottom:0.5rem}
+.region-card p{font-size:0.85rem;color:var(--muted);line-height:1.6}
+.region-card ul{list-style:none;margin-top:0.75rem}
+.region-card ul li{font-size:0.82rem;color:var(--muted);padding:3px 0;display:flex;align-items:center;gap:6px}
+.region-card ul li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--accent);flex-shrink:0}
+
+/* TOOLS */
+.tools{background:var(--bg)}
+.tools-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:2.5rem}
+.tool-pill{background:rgba(255,255,255,0.04);border:1px solid var(--border);padding:0.5rem 1.1rem;border-radius:100px;font-size:0.82rem;color:var(--muted);transition:all 0.2s;cursor:default}
+.tool-pill:hover{border-color:rgba(0,201,167,0.4);color:var(--accent);background:rgba(0,201,167,0.05)}
+
+/* PROCESS */
+.process{background:var(--bg2)}
+.process-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;margin-top:3rem;position:relative}
+.process-steps::before{content:'';position:absolute;top:28px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--border) 20%,var(--border) 80%,transparent);z-index:0}
+.step{text-align:center;padding:0 1rem;position:relative;z-index:1}
+.step-num{width:56px;height:56px;border-radius:50%;background:var(--bg2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;font-family:'Syne',sans-serif;font-weight:800;font-size:1rem;color:var(--accent)}
+.step h4{font-size:0.9rem;font-weight:700;margin-bottom:0.4rem}
+.step p{font-size:0.8rem;color:var(--muted);line-height:1.5}
+
+/* WHY US */
+.whyus{background:var(--bg)}
+.whyus-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem}
+.why-item{display:flex;gap:1rem;align-items:flex-start}
+.why-icon{width:38px;height:38px;border-radius:8px;background:rgba(0,201,167,0.08);border:1px solid rgba(0,201,167,0.15);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;margin-top:2px}
+.why-item h4{font-size:0.95rem;font-weight:600;margin-bottom:0.3rem}
+.why-item p{font-size:0.85rem;color:var(--muted);line-height:1.65}
+
+/* FAQ */
+.faq{background:var(--bg2)}
+.faq-list{margin-top:3rem;max-width:720px}
+.faq-item{border-bottom:1px solid var(--border);padding:1.5rem 0;cursor:pointer}
+.faq-item:first-child{border-top:1px solid var(--border)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.faq-q h4{font-size:0.95rem;font-weight:600;line-height:1.4}
+.faq-icon{width:28px;height:28px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:1.1rem;flex-shrink:0;transition:all 0.3s}
+.faq-item.open .faq-icon{transform:rotate(45deg);border-color:rgba(0,201,167,0.4)}
+.faq-a{font-size:0.875rem;color:var(--muted);line-height:1.75;max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.3s ease}
+.faq-item.open .faq-a{max-height:200px;padding-top:0.85rem}
+
+/* CTA */
+.cta-section{background:var(--bg);text-align:center;padding:7rem 5%}
+.cta-box{max-width:640px;margin:0 auto;background:linear-gradient(135deg,rgba(0,201,167,0.06),rgba(59,130,246,0.06));border:1px solid rgba(0,201,167,0.15);border-radius:20px;padding:4rem 3rem}
+.cta-box h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-1px;margin-bottom:1rem}
+.cta-box p{color:var(--muted);margin-bottom:2rem;line-height:1.75}
+.cta-email{font-size:0.875rem;color:var(--muted);margin-top:1.5rem}
+.cta-email a{color:var(--accent);text-decoration:none}
+
+/* FOOTER */
+footer{background:var(--bg2);padding:2.5rem 5%;border-top:1px solid var(--border)}
+.footer-inner{display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:2rem;margin-bottom:2rem}
+.footer-brand p{font-size:0.85rem;color:var(--muted);margin-top:0.5rem;max-width:240px;line-height:1.6}
+.footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem}
+.footer-logo span{color:var(--accent)}
+.footer-links h5{font-size:0.8rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+.footer-links ul{list-style:none}
+.footer-links ul li{margin-bottom:0.5rem}
+.footer-links ul li a{font-size:0.85rem;color:var(--muted);text-decoration:none;transition:color 0.2s}
+.footer-links ul li a:hover{color:var(--accent)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem}
+.footer-bottom p{font-size:0.8rem;color:var(--muted)}
+
+/* LABS */
+.labs{background:var(--bg2)}
+.labs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:3rem}
+.lab-card{border-radius:16px;overflow:hidden;border:1px solid var(--border);background:var(--card);transition:all 0.3s}
+.lab-card:hover{border-color:rgba(0,201,167,0.3);transform:translateY(-4px)}
+.lab-img{width:100%;height:220px;object-fit:cover;display:block;filter:brightness(0.85) saturate(0.9);transition:filter 0.3s}
+.lab-card:hover .lab-img{filter:brightness(1) saturate(1)}
+.lab-info{padding:1.25rem 1.5rem}
+.lab-info h3{font-size:0.95rem;font-weight:700;margin-bottom:0.4rem}
+.lab-info p{font-size:0.82rem;color:var(--muted);line-height:1.6}
+.lab-tag{display:inline-block;font-size:0.68rem;font-weight:600;padding:2px 10px;border-radius:100px;background:rgba(0,201,167,0.08);border:1px solid rgba(0,201,167,0.2);color:var(--accent);margin-bottom:0.75rem;letter-spacing:0.4px}
+
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hero-stats{gap:1.5rem}
+  .whyus-grid{grid-template-columns:1fr}
+  .process-steps::before{display:none}
+  .cta-box{padding:2.5rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#home">cel<span>vio</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#labs">Labs</a></li>
+    <li><a href="#team">Team</a></li>
+    <li><a href="#regions">Global</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get a Quote</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-badge">⚡ Precision VLSI Engineering</div>
+    <h1>Silicon Design<br>at <em>Every Layer</em></h1>
+    <p>Expert analog, digital, mixed-signal, and physical design services for semiconductor companies across the US, Europe, and Asia. From schematic to tape-out.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Start a Project</a>
+      <a href="#services" class="btn-outline">Explore Services</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><h3>6+</h3><p>Design Disciplines</p></div>
+      <div class="stat-item"><h3>3</h3><p>Global Regions Served</p></div>
+      <div class="stat-item"><h3>180nm–7nm</h3><p>Process Node Range</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="section-label">What we do</div>
+  <h2 class="section-title">Full-Spectrum VLSI Services</h2>
+  <p class="section-sub">From transistor-level analog to RTL verification — we handle every stage of chip design.</p>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">⚙️</div>
+      <h3>Analog Design</h3>
+      <p>Schematic design, simulation, and optimization of analog circuits including amplifiers, PLLs, ADCs, DACs, and bandgap references.</p>
+      <div class="service-tags"><span class="tag">SPICE</span><span class="tag">Cadence</span><span class="tag">Spectre</span></div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔷</div>
+      <h3>Digital Design</h3>
+      <p>RTL design, synthesis, timing closure, and STA for complex digital blocks and SoC architectures at advanced nodes.</p>
+      <div class="service-tags"><span class="tag">Verilog</span><span class="tag">VHDL</span><span class="tag">Synopsys</span></div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔀</div>
+      <h3>Mixed-Signal Design</h3>
+      <p>Bridging analog and digital domains with co-simulation, interface design, and mixed-signal verification flows.</p>
+      <div class="service-tags"><span class="tag">AMS</span><span class="tag">Virtuoso</span><span class="tag">Co-sim</span></div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📐</div>
+      <h3>Physical Design & Layout</h3>
+      <p>Floorplanning, P&R, clock tree synthesis, and DRC/LVS clean layouts from cell to full-chip level.</p>
+      <div class="service-tags"><span class="tag">Innovus</span><span class="tag">ICC2</span><span class="tag">Calibre</span></div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">✅</div>
+      <h3>Verification (UVM/SV)</h3>
+      <p>Constrained-random testbench development, coverage-driven verification, and formal methods using SystemVerilog and UVM.</p>
+      <div class="service-tags"><span class="tag">UVM</span><span class="tag">SystemVerilog</span><span class="tag">VCS</span></div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔌</div>
+      <h3>FPGA Design</h3>
+      <p>Prototyping and production FPGA design for Xilinx/AMD and Intel platforms including hardware bring-up and validation.</p>
+      <div class="service-tags"><span class="tag">Vivado</span><span class="tag">Quartus</span><span class="tag">HLS</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio" id="portfolio">
+  <div class="section-label">Our Work</div>
+  <h2 class="section-title">Featured Projects</h2>
+  <p class="section-sub">A selection of VLSI design engagements across process nodes and design disciplines.</p>
+  <div class="portfolio-grid">
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-node">28nm TSMC</div>
+        <h3>Low-Power PLL for IoT SoC</h3>
+        <p class="proj-desc">Designed a fractional-N PLL targeting sub-1mW operation for a wireless IoT chip. Delivered schematic, layout, and post-layout simulation reports with full DRC/LVS sign-off.</p>
+      </div>
+      <div class="project-bottom">
+        <div class="proj-tags"><span class="proj-tag">Analog</span><span class="proj-tag">Cadence</span><span class="proj-tag">Spectre</span></div>
+        <span class="proj-outcome">✓ Taped out</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-node">65nm UMC</div>
+        <h3>High-Speed SerDes PHY</h3>
+        <p class="proj-desc">RTL design and physical implementation of a 10Gbps SerDes transceiver block. Achieved timing closure at target frequency with optimized power delivery network.</p>
+      </div>
+      <div class="project-bottom">
+        <div class="proj-tags"><span class="proj-tag">Mixed-Signal</span><span class="proj-tag">Innovus</span><span class="proj-tag">STA</span></div>
+        <span class="proj-outcome">✓ Silicon proven</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-node">180nm GlobalFoundries</div>
+        <h3>12-bit SAR ADC</h3>
+        <p class="proj-desc">Full custom analog design of a successive approximation ADC achieving 12-bit resolution at 5MSPS. Included comparator, DAC array, and digital control logic.</p>
+      </div>
+      <div class="project-bottom">
+        <div class="proj-tags"><span class="proj-tag">Analog</span><span class="proj-tag">SPICE</span><span class="proj-tag">Layout</span></div>
+        <span class="proj-outcome">✓ Characterized</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-node">FPGA Xilinx UltraScale+</div>
+        <h3>RISC-V SoC Prototype</h3>
+        <p class="proj-desc">FPGA implementation of a custom RISC-V core with AXI interconnect and peripheral subsystem for pre-silicon software bring-up and hardware validation.</p>
+      </div>
+      <div class="project-bottom">
+        <div class="proj-tags"><span class="proj-tag">Digital</span><span class="proj-tag">FPGA</span><span class="proj-tag">Vivado</span></div>
+        <span class="proj-outcome">✓ Delivered</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-node">7nm FinFET</div>
+        <h3>UVM Verification Env — DDR5 Controller</h3>
+        <p class="proj-desc">Built a complete UVM verification environment for a DDR5 memory controller including protocol-compliant agents, scoreboards, and functional coverage closure.</p>
+      </div>
+      <div class="project-bottom">
+        <div class="proj-tags"><span class="proj-tag">Verification</span><span class="proj-tag">UVM</span><span class="proj-tag">VCS</span></div>
+        <span class="proj-outcome">✓ 100% coverage</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-top">
+        <div class="project-node">40nm TSMC</div>
+        <h3>Low-Dropout Regulator Array</h3>
+        <p class="proj-desc">Designed a multi-output LDO array for a power management IC with fast transient response and programmable output voltage via I2C interface.</p>
+      </div>
+      <div class="project-bottom">
+        <div class="proj-tags"><span class="proj-tag">Analog</span><span class="proj-tag">PMIC</span><span class="proj-tag">Mixed-Signal</span></div>
+        <span class="proj-outcome">✓ Production ready</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- LABS -->
+<section class="labs" id="labs">
+  <div class="section-label">Our Facilities</div>
+  <h2 class="section-title">Design &amp; Testing Labs</h2>
+  <p class="section-sub">State-of-the-art workstations and test equipment powering every project we deliver.</p>
+  <div class="labs-grid">
+    <div class="lab-card">
+      <img class="lab-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&amp;q=80" alt="VLSI design workstation running EDA tools" onerror="this.style.display='none'">
+      <div class="lab-info"><div class="lab-tag">Design Lab</div><h3>EDA Design Workstations</h3><p>High-performance Linux workstations running Cadence Virtuoso, Synopsys DC, and Innovus for schematic, layout, and synthesis workflows.</p></div>
+    </div>
+    <div class="lab-card">
+      <img class="lab-img" src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&amp;q=80" alt="Engineer working on circuit design software" onerror="this.style.display='none'">
+      <div class="lab-info"><div class="lab-tag">Simulation Lab</div><h3>Mixed-Signal Simulation Suite</h3><p>Dedicated clusters for SPICE, Spectre, and AMS co-simulation — supporting corner analysis, Monte Carlo runs, and post-layout verification.</p></div>
+    </div>
+    <div class="lab-card">
+      <img class="lab-img" src="https://images.unsplash.com/photo-1555664424-778a1e5e1b48?w=800&amp;q=80" alt="Electronics testing lab with oscilloscope equipment" onerror="this.style.display='none'">
+      <div class="lab-info"><div class="lab-tag">Testing Lab</div><h3>Hardware Validation &amp; Test</h3><p>Equipped with digital oscilloscopes, logic analyzers, spectrum analyzers, and bench power supplies for FPGA bring-up and silicon validation.</p></div>
+    </div>
+    <div class="lab-card">
+      <img class="lab-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&amp;q=80" alt="FPGA prototype board on lab bench" onerror="this.style.display='none'">
+      <div class="lab-info"><div class="lab-tag">Prototyping Lab</div><h3>FPGA Prototyping Bench</h3><p>Xilinx UltraScale+ and Intel Agilex FPGA boards for rapid SoC prototyping, firmware bring-up, and pre-silicon software validation.</p></div>
+    </div>
+    <div class="lab-card">
+      <img class="lab-img" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800&amp;q=80" alt="Server compute cluster for EDA simulation" onerror="this.style.display='none'">
+      <div class="lab-info"><div class="lab-tag">Compute Infrastructure</div><h3>EDA Compute Cluster</h3><p>On-premise and cloud compute clusters for parallel simulation, formal verification, and large-scale physical design runs.</p></div>
+    </div>
+    <div class="lab-card">
+      <img class="lab-img" src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&amp;q=80" alt="Engineer reviewing chip layout on large display" onerror="this.style.display='none'">
+      <div class="lab-info"><div class="lab-tag">Layout Lab</div><h3>Physical Design Review Station</h3><p>Large-format displays for full-chip layout review, DRC/LVS debug, and floorplan analysis using Cadence Virtuoso and Mentor Calibre.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="section-label">Our Team</div>
+  <h2 class="section-title">The People Behind Celvio</h2>
+  <p class="section-sub">Seasoned engineers with deep domain expertise across the full VLSI design stack.</p>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar" style="background:rgba(0,201,167,0.1);color:var(--accent)">PS</div>
+      <h3>ParthaSarathy</h3>
+      <div class="role">Founder & CEO</div>
+      <p>Leads Celvio's vision and client strategy with deep expertise in analog and mixed-signal design. Drives technical excellence and global partnerships.</p>
+      <div class="team-skills">
+        <span class="team-skill">Analog Design</span>
+        <span class="team-skill">Mixed-Signal</span>
+        <span class="team-skill">Cadence</span>
+        <span class="team-skill">Leadership</span>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar" style="background:rgba(59,130,246,0.1);color:#93C5FD">AK</div>
+      <h3>Arun Kumar</h3>
+      <div class="role">Lead Digital Design Engineer</div>
+      <p>10+ years in RTL design, synthesis, and STA. Specializes in high-speed digital blocks and SoC integration across advanced nodes.</p>
+      <div class="team-skills">
+        <span class="team-skill">Verilog</span>
+        <span class="team-skill">Synopsys DC</span>
+        <span class="team-skill">STA</span>
+        <span class="team-skill">SoC</span>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar" style="background:rgba(168,85,247,0.1);color:#C4B5FD">SR</div>
+      <h3>Sowmya Rajan</h3>
+      <div class="role">Physical Design Lead</div>
+      <p>Expert in floorplanning, place-and-route, and timing closure for sub-28nm designs. DRC/LVS sign-off experience across multiple foundries.</p>
+      <div class="team-skills">
+        <span class="team-skill">Innovus</span>
+        <span class="team-skill">ICC2</span>
+        <span class="team-skill">Calibre</span>
+        <span class="team-skill">CTS</span>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar" style="background:rgba(245,158,11,0.1);color:#FCD34D">VN</div>
+      <h3>Venkat Narayanan</h3>
+      <div class="role">Verification Engineer</div>
+      <p>Builds robust UVM environments for complex IP blocks. Deep experience with constrained-random simulation and formal verification techniques.</p>
+      <div class="team-skills">
+        <span class="team-skill">UVM</span>
+        <span class="team-skill">SystemVerilog</span>
+        <span class="team-skill">VCS</span>
+        <span class="team-skill">Formal</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="section-label">Client Feedback</div>
+  <h2 class="section-title">What Our Clients Say</h2>
+  <p class="section-sub">We build long-term partnerships grounded in technical excellence and reliability.</p>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <div class="quote-mark">"</div>
+      <p>Celvio delivered our PLL design ahead of schedule with exceptional simulation coverage. Their attention to corner cases and process variation was impressive.</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:rgba(0,201,167,0.1);color:var(--accent)">JL</div>
+        <div>
+          <div class="testi-name">James Liu</div>
+          <div class="testi-co">VP Engineering, FablessTech Inc · USA</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <div class="quote-mark">"</div>
+      <p>The UVM environment they built for our DDR5 controller was production-grade. Clean code, thorough documentation, and responsive communication throughout.</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:rgba(59,130,246,0.1);color:#93C5FD">MH</div>
+        <div>
+          <div class="testi-name">Markus Hoffmann</div>
+          <div class="testi-co">CTO, SiliconWave GmbH · Germany</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <div class="quote-mark">"</div>
+      <p>We needed fast FPGA prototyping for our RISC-V core and Celvio delivered in 3 weeks. Great team, deep skills, and competitive pricing for Asia-Pacific clients.</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:rgba(245,158,11,0.1);color:#FCD34D">TW</div>
+        <div>
+          <div class="testi-name">Tan Wei</div>
+          <div class="testi-co">Director, NanoLogic Pte Ltd · Singapore</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGIONS -->
+<section class="regions" id="regions">
+  <div class="section-label">Global Reach</div>
+  <h2 class="section-title">Serving Clients Worldwide</h2>
+  <p class="section-sub">We work across time zones to deliver silicon solutions to top semiconductor markets.</p>
+  <div class="regions-grid">
+    <div class="region-card">
+      <div class="region-flag">🇺🇸</div>
+      <h3>United States</h3>
+      <p>Serving fabless startups and established chipmakers across Silicon Valley, Austin, and Boston.</p>
+      <ul>
+        <li>Silicon Valley / San Jose</li>
+        <li>Austin, Texas</li>
+        <li>Boston / Cambridge</li>
+        <li>Seattle & Portland</li>
+      </ul>
+    </div>
+    <div class="region-card">
+      <div class="region-flag">🌏</div>
+      <h3>Asia</h3>
+      <p>Partnering with semiconductor companies in India, Taiwan, Singapore, and South Korea.</p>
+      <ul>
+        <li>Bangalore & Chennai, India</li>
+        <li>Hyderabad & Pune</li>
+        <li>Taiwan & Singapore</li>
+        <li>South Korea & Japan</li>
+      </ul>
+    </div>
+    <div class="region-card">
+      <div class="region-flag">🇪🇺</div>
+      <h3>Europe</h3>
+      <p>Collaborating with semiconductor leaders in Germany, Netherlands, UK, and Scandinavia.</p>
+      <ul>
+        <li>Germany (Munich, Dresden)</li>
+        <li>Netherlands (Eindhoven)</li>
+        <li>United Kingdom</li>
+        <li>Sweden & Finland</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="tools" id="tools">
+  <div class="section-label">EDA Expertise</div>
+  <h2 class="section-title">Industry-Standard Tools</h2>
+  <p class="section-sub">Proficient in the full suite of EDA tools used across the global semiconductor industry.</p>
+  <div class="tools-row">
+    <span class="tool-pill">Cadence Virtuoso</span>
+    <span class="tool-pill">Synopsys Design Compiler</span>
+    <span class="tool-pill">Cadence Innovus</span>
+    <span class="tool-pill">Mentor Calibre</span>
+    <span class="tool-pill">Synopsys VCS</span>
+    <span class="tool-pill">Cadence Spectre</span>
+    <span class="tool-pill">Xilinx Vivado</span>
+    <span class="tool-pill">Intel Quartus</span>
+    <span class="tool-pill">HSPICE</span>
+    <span class="tool-pill">ModelSim / Questasim</span>
+    <span class="tool-pill">Synopsys ICC2</span>
+    <span class="tool-pill">Cadence Genus</span>
+    <span class="tool-pill">Synopsys Formality</span>
+    <span class="tool-pill">MATLAB / Simulink</span>
+    <span class="tool-pill">Python / Tcl scripting</span>
+    <span class="tool-pill">Synopsys PrimeTime</span>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <div class="section-label">How We Work</div>
+  <h2 class="section-title">Our Engagement Process</h2>
+  <p class="section-sub">Simple, transparent, and results-driven — from first call to tape-out.</p>
+  <div class="process-steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h4>Discovery Call</h4>
+      <p>Understand your spec, timeline, and technology node requirements</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h4>Proposal & NDA</h4>
+      <p>Detailed SOW, IP protection agreement, and milestone planning</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h4>Design & Review</h4>
+      <p>Iterative design with regular reviews and simulation reports</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <h4>Verification</h4>
+      <p>Functional, DRC, LVS, and timing sign-off</p>
+    </div>
+    <div class="step">
+      <div class="step-num">05</div>
+      <h4>Delivery</h4>
+      <p>Handoff of design files, documentation, and post-delivery support</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="whyus" id="why">
+  <div class="section-label">Why Celvio</div>
+  <h2 class="section-title">Built for Serious Silicon</h2>
+  <p class="section-sub">We bring deep expertise and professionalism to every engagement.</p>
+  <div class="whyus-grid">
+    <div class="why-item">
+      <div class="why-icon">🔒</div>
+      <div>
+        <h4>IP Confidentiality</h4>
+        <p>Strict NDA practices and secure design environments protect your intellectual property at every stage.</p>
+      </div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">🌐</div>
+      <div>
+        <h4>Time Zone Coverage</h4>
+        <p>Based in Chennai, India — we overlap with US, European, and Asian business hours for seamless collaboration.</p>
+      </div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">📊</div>
+      <div>
+        <h4>Process Node Experience</h4>
+        <p>Hands-on experience from 180nm to 7nm FinFET, across TSMC, GlobalFoundries, UMC, and Samsung foundries.</p>
+      </div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">💬</div>
+      <div>
+        <h4>Clear Communication</h4>
+        <p>Weekly status reports, simulation dashboards, and always-responsive project leads — no surprises.</p>
+      </div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">⚡</div>
+      <div>
+        <h4>Fast Turnaround</h4>
+        <p>Agile design sprints and dedicated teams ensure your milestones are met without compromise on quality.</p>
+      </div>
+    </div>
+    <div class="why-item">
+      <div class="why-icon">💰</div>
+      <div>
+        <h4>Cost Effective</h4>
+        <p>World-class VLSI talent at competitive rates — ideal for startups and enterprises optimizing design budgets.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="section-label">FAQ</div>
+  <h2 class="section-title">Frequently Asked Questions</h2>
+  <p class="section-sub">Answers to common questions about working with Celvio.</p>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q"><h4>What process nodes do you support?</h4><div class="faq-icon">+</div></div>
+      <div class="faq-a">We support a wide range of process nodes from mature nodes (180nm, 130nm, 65nm) to advanced FinFET nodes (28nm, 16nm, 7nm) across foundries including TSMC, GlobalFoundries, UMC, and Samsung.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><h4>How do you protect our IP and design files?</h4><div class="faq-icon">+</div></div>
+      <div class="faq-a">We sign mutual NDAs before any technical discussion begins. All design work happens in secure, isolated environments with access controls. Source files are transferred via encrypted channels and deleted from our systems upon project completion if required.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><h4>Do you work with international clients?</h4><div class="faq-icon">+</div></div>
+      <div class="faq-a">Yes — we actively serve clients in the United States, Europe (Germany, UK, Netherlands), and across Asia (India, Taiwan, Singapore, South Korea). We adjust meeting times to overlap with your business hours and communicate in English.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><h4>What is your typical project timeline?</h4><div class="faq-icon">+</div></div>
+      <div class="faq-a">Timelines vary by project complexity. Small blocks (LDO, comparator) typically take 4–8 weeks. Medium blocks (ADC, PLL, digital subsystem) take 8–16 weeks. Full-chip physical design engagements are scoped individually based on complexity and target node.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><h4>Can you work with our existing design team?</h4><div class="faq-icon">+</div></div>
+      <div class="faq-a">Absolutely. We integrate well as an extension of your in-house team — whether as a dedicated resource, a specialized sub-team, or a review and signoff partner. We are comfortable working within your existing flows and toolchains.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q"><h4>How do I get started?</h4><div class="faq-icon">+</div></div>
+      <div class="faq-a">Simply email us at hello@celvio.in with a brief description of your project — the design type, target process node, and rough timeline. We'll schedule a free 30-minute discovery call within 24 hours and follow up with a detailed proposal.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-box">
+    <div class="section-label" style="text-align:center">Get in Touch</div>
+    <h2>Ready to Build Your Next Chip?</h2>
+    <p>Tell us about your project — we'll respond within 24 hours with a detailed proposal and estimated timeline.</p>
+    <a href="mailto:contact@celvio.in" class="btn-primary">contact@celvio.in</a>
+    <p class="cta-email">Or reach ParthaSarathy directly at <a href="mailto:parthasarathy@celvio.in">parthasarathy@celvio.in</a></p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">cel<span>vio</span></div>
+      <p>VLSI design services for semiconductor companies across the US, Europe, and Asia. Based in Chennai, India.</p>
+    </div>
+    <div class="footer-links">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#services">Analog Design</a></li>
+        <li><a href="#services">Digital Design</a></li>
+        <li><a href="#services">Mixed-Signal</a></li>
+        <li><a href="#services">Physical Design</a></li>
+        <li><a href="#services">Verification</a></li>
+        <li><a href="#services">FPGA Design</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#labs">Labs</a></li>
+        <li><a href="#regions">Global Reach</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="mailto:contact@celvio.in">contact@celvio.in</a></li>
+        <li><a href="mailto:parthasarathy@celvio.in">parthasarathy@celvio.in</a></li>
+        <li><a href="#">Chennai, Tamil Nadu, India</a></li>
+        <li><a href="https://linkedin.com" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Celvio Technologies. All rights reserved.</p>
+    <p>Serving US · Asia · Europe</p>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('.faq-item').forEach(item=>{
+  item.addEventListener('click',()=>{
+    const isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!isOpen)item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>
